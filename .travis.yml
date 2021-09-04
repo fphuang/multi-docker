@@ -5,20 +5,20 @@ services:
   - docker
 
 before_install:
-  - docker build -t fphuang/react-test -f ./client/Dockerfile.dev ./client
+  - docker build -t huangfp/react-test -f ./client/Dockerfile.dev ./client
 
 script:
-  - docker run -e CI=true fphuang/react-test npm test
+  - docker run -e CI=true huangfp/react-test npm test
 
 after_success:
-  - docker build -t fphuang/multi-client ./client
-  - docker build -t fphuang/multi-nginx ./nginx
-  - docker build -t fphuang/multi-server ./server
-  - docker build -t fphuang/multi-worker ./worker
+  - docker build -t huangfp/multi-client ./client
+  - docker build -t huangfp/multi-nginx ./nginx
+  - docker build -t huangfp/multi-server ./server
+  - docker build -t huangfp/multi-worker ./worker
   # Log in to the docker CLI
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
   # Take those images and push them to docker hub
-  - docker push fphuang/multi-client
-  - docker push fphuang/multi-nginx
-  - docker push fphuang/multi-server
-  - docker push fphuang/multi-worker
+  - docker push huangfp/multi-client
+  - docker push huangfp/multi-nginx
+  - docker push huangfp/multi-server
+  - docker push huangfp/multi-worker
