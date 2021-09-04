@@ -1,7 +1,7 @@
 sudo: required
 language: generic
 
-services: 
+services:
   - docker
 
 before_install:
@@ -15,11 +15,10 @@ after_success:
   - docker build -t fphuang/multi-nginx ./nginx
   - docker build -t fphuang/multi-server ./server
   - docker build -t fphuang/multi-worker ./worker
-  #log in to the docker CLI
+  # Log in to the docker CLI
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
-  #Take those images and push them into Docker-hub
+  # Take those images and push them to docker hub
   - docker push fphuang/multi-client
   - docker push fphuang/multi-nginx
   - docker push fphuang/multi-server
   - docker push fphuang/multi-worker
-
