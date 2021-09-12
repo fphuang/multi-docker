@@ -19,7 +19,7 @@ function App() {
           >
             Fib Calculator
           </a>
-          <Link to="/">Home</Link>
+          <Link to="/">Home - fxh</Link>
           <Link to="/otherpage">Other Page</Link>
         </header>
         <div>
